@@ -241,3 +241,4 @@ function dibujarMuneco() {
     fill(240, 130, 45);
     triangle(200, 123, 200, 132, 222, 127); // Nariz
 }
+// Actualización para volver a publicar la galería
