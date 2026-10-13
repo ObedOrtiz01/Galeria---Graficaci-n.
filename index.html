@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi galería de gráficación</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Librería p5.js para crear los dibujos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+</head>
+<body>
+    <header class="encabezado">
+        <p class="etiqueta">INGENIERÍA EN SISTEMAS COMPUTACIONALES · GRÁFICACIÓN</p>
+        <h1>Mi galería de dibujos</h1>
+        <p>Mis primeros proyectos de dibujo usando HTML, CSS y JavaScript con p5.js.</p>
+    </header>
+
+    <nav class="menu" aria-label="Menú principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#rana" onclick="mostrarDibujo('rana')">Rana</a>
+        <a href="#conejo" onclick="mostrarDibujo('conejo')">Dientes de conejo</a>
+        <a href="#cena" onclick="mostrarDibujo('cena')">¿Qué hay de cena?</a>
+        <a href="#dia-nevado" onclick="mostrarDibujo('dia-nevado')">Día nevado soleado</a>
+        <a href="#muneco" onclick="mostrarDibujo('muneco')">Muñeco de nieve</a>
+        <a href="#teoria">Teoría</a>
+    </nav>
+
+    <main>
+        <section id="inicio" class="intro">
+            <div>
+                <p class="etiqueta">PORTAFOLIO DE PRÁCTICA</p>
+                <h2>Del simulador al código web</h2>
+                <p>Esta página reúne cinco dibujos adaptados de los ejercicios de Khan Academy. Selecciona un proyecto en el menú o usa el botón de cada tarjeta para verlo en el área de dibujo.</p>
+            </div>
+            <div class="nota">
+                <strong>Cómo usar la galería</strong>
+                <p>El dibujo aparece en el panel de la derecha. Los enlaces del menú te llevan a la descripción de cada proyecto y actualizan el dibujo.</p>
+            </div>
+        </section>
+
+        <section class="galeria" aria-labelledby="titulo-galeria">
+            <div class="seccion-titulo">
+                <p class="etiqueta">PROYECTOS</p>
+                <h2 id="titulo-galeria">Mis dibujos</h2>
+            </div>
+            <div class="zona-proyectos">
+                <div class="tarjetas">
+                    <article id="rana" class="tarjeta">
+                        <span class="numero">01</span>
+                        <h3>Rana</h3>
+                        <p>Una rana verde creada con elipses, rectángulos y colores.</p>
+                        <button type="button" onclick="mostrarDibujo('rana')">Ver dibujo</button>
+                    </article>
+                    <article id="conejo" class="tarjeta">
+                        <span class="numero">02</span>
+                        <h3>Dientes de conejo</h3>
+                        <p>Una cara de conejo formada con elipses, líneas y rectángulos.</p>
+                        <button type="button" onclick="mostrarDibujo('conejo')">Ver dibujo</button>
+                    </article>
+                    <article id="cena" class="tarjeta">
+                        <span class="numero">03</span>
+                        <h3>¿Qué hay de cena?</h3>
+                        <p>Un plato visto desde arriba sobre una mesa de madera.</p>
+                        <button type="button" onclick="mostrarDibujo('cena')">Ver dibujo</button>
+                    </article>
+                    <article id="dia-nevado" class="tarjeta">
+                        <span class="numero">04</span>
+                        <h3>Día nevado soleado</h3>
+                        <p>Un paisaje con sol, suelo verde y un muñeco de nieve.</p>
+                        <button type="button" onclick="mostrarDibujo('dia-nevado')">Ver dibujo</button>
+                    </article>
+                    <article id="muneco" class="tarjeta">
+                        <span class="numero">05</span>
+                        <h3>Muñeco de nieve</h3>
+                        <p>Un muñeco de nieve con brazos sobre un suelo sencillo.</p>
+                        <button type="button" onclick="mostrarDibujo('muneco')">Ver dibujo</button>
+                    </article>
+                </div>
+
+                <aside class="panel-dibujo">
+                    <div class="panel-cabecera">
+                        <div>
+                            <p class="etiqueta">VISTA PREVIA</p>
+                            <h3 id="nombre-dibujo">Rana</h3>
+                        </div>
+                        <span class="punto"></span>
+                    </div>
+                    <div id="lienzo" aria-label="Área donde se muestra el dibujo"></div>
+                    <p class="ayuda">Área de dibujo de 400 × 400 píxeles, creada con p5.js.</p>
+                </aside>
+            </div>
+        </section>
+
+        <section id="teoria" class="teoria">
+            <div class="seccion-titulo">
+                <p class="etiqueta">APARTADO INFORMATIVO</p>
+                <h2>Conceptos básicos</h2>
+            </div>
+            <div class="bloques-teoria">
+                <article class="bloque">
+                    <h3>¿Qué es la etiqueta <code>&lt;canvas&gt;</code>?</h3>
+                    <p>La etiqueta <code>&lt;canvas&gt;</code> de HTML crea una superficie rectangular dentro de una página web en la que se pueden dibujar gráficos mediante JavaScript. Por sí sola, la etiqueta solo proporciona el área de dibujo; el código JavaScript indica qué se dibuja.</p>
+                    <p>Por ejemplo, <code>&lt;canvas width="400" height="400"&gt;&lt;/canvas&gt;</code> crea un lienzo de 400 píxeles de ancho por 400 de alto. Es importante definir sus dimensiones para controlar el espacio disponible.</p>
+                    <h4>Contexto de renderizado 2D</h4>
+                    <p>El contexto 2D permite dibujar formas, líneas, texto e imágenes. En JavaScript nativo suele obtenerse con <code>canvas.getContext("2d")</code>. Incluye operaciones para establecer colores, dibujar rectángulos, arcos y modificar el estilo del trazo.</p>
+                    <p>En esta práctica, p5.js administra el lienzo y ofrece funciones más sencillas, como <code>ellipse()</code>, <code>rect()</code>, <code>line()</code>, <code>fill()</code> y <code>background()</code>.</p>
+                </article>
+                <article class="bloque">
+                    <h3>Fundamentos de p5.js</h3>
+                    <p>p5.js es una librería de JavaScript pensada para facilitar la creación de dibujos, animaciones e interacciones. Traduce acciones comunes de dibujo a funciones fáciles de leer, por lo que es útil para aprender los conceptos básicos de gráficación.</p>
+                    <h4>Funciones principales usadas</h4>
+                    <ul>
+                        <li><code>createCanvas(ancho, alto)</code>: crea el área de dibujo.</li>
+                        <li><code>background(r, g, b)</code>: pinta el fondo usando valores de color RGB.</li>
+                        <li><code>fill(r, g, b)</code>: define el color interior de las formas.</li>
+                        <li><code>noStroke()</code> y <code>stroke()</code>: quitan o establecen el contorno.</li>
+                        <li><code>ellipse(x, y, ancho, alto)</code>: dibuja una elipse.</li>
+                        <li><code>rect(x, y, ancho, alto)</code>: dibuja un rectángulo.</li>
+                        <li><code>line(x1, y1, x2, y2)</code>: dibuja una línea entre dos puntos.</li>
+                    </ul>
+                    <p>En p5.js, las coordenadas empiezan en la esquina superior izquierda: <code>(0, 0)</code>. El valor de <code>x</code> aumenta hacia la derecha y el de <code>y</code> hacia abajo. La función <code>setup()</code> se ejecuta al iniciar; <code>draw()</code> puede repetirse para producir animaciones. En esta galería se utiliza <code>noLoop()</code> porque los dibujos son estáticos.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto escolar de Gráficación · HTML, CSS, JavaScript y p5.js</p>
+    </footer>
+
+    <script src="sketch.js"></script>
+</body>
+</html>
