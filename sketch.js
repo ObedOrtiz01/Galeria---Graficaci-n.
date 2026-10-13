@@ -90,14 +90,113 @@ function dibujarConejo() {
 
 // DIBUJO 3: ¿QUÉ HAY DE CENA?
 function dibujarCena() {
-    background(186, 145, 20);     // Mesa de madera
+    background(160,110,50);
+    for(var i = 0; i < 400; i += 20){
+        stroke(140,90,30,80);
+        strokeWeight(2);
+        line(0,i,400,i);
+    }
+    
+    //El platico
     noStroke();
-    fill(245);
-    ellipse(200, 200, 350, 350);  // Borde exterior del plato
-    fill(220, 226, 230);
-    ellipse(200, 200, 300, 300);  // Interior del plato
-    fill(255);
-    ellipse(200, 200, 270, 270);  // Centro claro del plato
+    fill(50,30,20,100);
+    rect(45,115,310,190,15);
+    
+    fill(20,20,20);
+    rect(40,110,310,190,12);
+    
+    fill(30,45,65);
+    rect(40,110,310,190,12);
+    
+    fill(30,45,65);
+    rect(55,122,280,166,8);
+    fill(20,35,50);
+    rect(62,128,266,154,5);
+    
+    fill(40,15,5);
+    rect(55,122,280,6,3);
+    
+    //Salcita de soja
+    fill(20,20,20);
+    ellipse(95,160,50,40);
+    fill(15,10,10);
+    ellipse(95,160,42,32);
+    
+    fill(40,15,5);
+    ellipse(95,161,40,28);
+    fill(255,255,255,70);
+    ellipse(105,156,8,4);
+    
+    
+    //El WASAAAAABI
+    fill(100,170,40);
+    ellipse(100,235,28,22);
+    fill(140,200,60);
+    ellipse(98,233,18,14);
+    
+    //El jengibre juas juas
+    fill(235,160,160);
+    ellipse(130,240,30,15);
+    fill(255,185,185);
+    ellipse(127,237,25,12);
+    fill(240,170,170);
+    ellipse(132,234,20,10);
+    
+    //Rollo de sushi de salmon
+    //Alga nori
+    fill(15,30,20);
+    ellipse(190,170,62,52);
+    //aloz
+    fill(240,240,240);
+    ellipse(190,170,52,42);
+    fill(255,255,255);
+    ellipse(190,170,48,38);
+    //Relleno de salmon
+    fill(245,110,70);
+    ellipse(186,170,22,18);
+    fill(255,150,110);
+    ellipse(185,169,14,10);
+    //Leyeno awakate y pepino
+    fill(80,160,50);
+    ellipse(198,166,12,10);
+    fill(180,220,100);
+    ellipse(196,175,10,8);
+    //otlo sushi pelo de atun
+    fill(15,30,20);
+    ellipse(260,170,62,52);
+    fill(240,240,240);
+    ellipse(260,170,52,42);
+    fill(255,255,255);
+    ellipse(260,170,48,38);
+    //El atun intenso de colol
+    fill(180,30,50);
+    ellipse(260,170,24,20);
+    fill(220,60,80);
+    ellipse(258,169,14,10);
+    
+    //El onigili de salmon
+    //aloz
+    fill(230,230,230);
+    ellipse(215,235,75,35);
+    //Lamina de salmon encima
+    fill(245,100,60);
+    ellipse(215,230,85,36);
+    //lineas en el salmon
+    stroke(255,180,150);
+    strokeWeight(2);
+    line(185,222,200,238);
+    line(205,218,225,239);
+    line(225,218,245,238);
+    noStroke();
+    //Blillo de flescula en el salmon
+    fill(255,255,255,90);
+    ellipse(205,222,18,5);
+    //Palitos de madela
+    stroke(120,70.30);
+    strokeWeight(5);
+    line(70,275,330,260);
+    strokeWeight(3);
+    line(70,282,330,263);
 }
 
 // DIBUJO 4: DÍA NEVADO SOLEADO
