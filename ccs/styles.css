@@ -1,15 +1,21 @@
-/* Estilos sencillos para organizar y decorar la página */
 :root {
     --fondo: #f4f6f8;
     --texto: #202b35;
-    --suave: #65727e;
-    --azul: #285d70;
-    --azul-oscuro: #1d4655;
-    --blanco: #ffffff;
+    --texto-suave: #5f6c77;
+
+    --primario: #24495a;
+    --primario-hover: #193947;
+
+    --secundario: #6f9eaa;
+
     --borde: #dce3e8;
+
+    --blanco: #ffffff;
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -18,283 +24,395 @@ html {
 }
 
 body {
-    margin: 0;
     background: var(--fondo);
     color: var(--texto);
+
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
 }
 
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
 .encabezado {
-    padding: 54px 7% 48px;
     background: #203d4a;
     color: white;
+
+    padding: 60px 8%;
 }
 
 .encabezado h1 {
-    margin: 8px 0;
-    font-size: clamp(2rem, 5vw, 3.3rem);
-    line-height: 1.15;
+    margin: 10px 0;
+
+    font-size: clamp(2.3rem, 5vw, 3.8rem);
 }
 
-.encabezado p {
-    max-width: 720px;
+.encabezado p:last-child {
+    max-width: 700px;
 }
 
 .etiqueta {
-    margin: 0;
-    color: #6f9eaa;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
+    letter-spacing: .15em;
     font-weight: bold;
-    letter-spacing: 0.12em;
+
+    color: #9ec5cf;
 }
 
-.encabezado .etiqueta {
-    color: #a8d2dc;
-}
+/* ========================= */
+/* MENU SUPERIOR */
+/* ========================= */
 
-.menu {
+.menu-superior {
     position: sticky;
+
     top: 0;
-    z-index: 10;
+    z-index: 100;
+
     display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    padding: 10px 6%;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 15px;
+
     background: white;
+
     border-bottom: 1px solid var(--borde);
 }
 
-.menu a {
-    padding: 8px 11px;
+.menu-superior a {
     color: var(--texto);
+
     text-decoration: none;
-    font-size: 0.9rem;
-    border-radius: 6px;
+
+    font-weight: 600;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    transition: .2s;
 }
 
-.menu a:hover {
-    background: #eaf1f3;
-    color: var(--azul-oscuro);
+.menu-superior a:hover {
+    background: #edf4f6;
+    color: var(--primario);
 }
+
+/* ========================= */
+/* CONTENIDO */
+/* ========================= */
 
 main {
-    width: min(1180px, 90%);
-    margin: 0 auto;
+    width: min(1300px, 92%);
+    margin: 40px auto;
 }
 
-.intro {
+/* ========================= */
+/* VISOR */
+/* ========================= */
+
+.visor-principal {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 28px;
-    align-items: center;
-    padding: 54px 0 42px;
+
+    grid-template-columns: 260px 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 40px;
 }
 
-h2, h3, h4 {
-    line-height: 1.25;
-}
+/* ========================= */
+/* MENÚ LATERAL */
+/* ========================= */
 
-.intro h2, .seccion-titulo h2 {
-    margin: 8px 0 12px;
-    font-size: 2rem;
-}
-
-.nota {
-    padding: 22px;
+.menu-lateral {
     background: white;
+
     border: 1px solid var(--borde);
-    border-radius: 12px;
-}
 
-.nota p {
-    margin-bottom: 0;
-    color: var(--suave);
-}
+    border-radius: 16px;
 
-.galeria {
-    padding: 24px 0 62px;
-}
+    padding: 24px;
 
-.seccion-titulo {
-    margin-bottom: 22px;
-}
+    height: fit-content;
 
-.zona-proyectos {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(330px, 0.9fr);
-    gap: 24px;
-    align-items: start;
-}
-
-.tarjetas {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-}
-
-.tarjeta, .panel-dibujo, .bloque {
-    background: white;
-    border: 1px solid var(--borde);
-    border-radius: 12px;
-}
-
-.tarjeta {
-    padding: 20px;
-    scroll-margin-top: 85px;
-}
-
-.tarjeta:last-child {
-    grid-column: 1 / -1;
-}
-
-.numero {
-    color: #6f9eaa;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-.tarjeta h3 {
-    margin: 8px 0;
-}
-
-.tarjeta p {
-    min-height: 72px;
-    color: var(--suave);
-    font-size: 0.93rem;
-}
-
-button {
-    padding: 10px 14px;
-    color: white;
-    background: var(--azul);
-    border: 0;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background: var(--azul-oscuro);
-}
-
-.panel-dibujo {
     position: sticky;
-    top: 82px;
-    padding: 18px;
+    top: 90px;
 }
 
-.panel-cabecera {
+.menu-lateral h3 {
+    margin-bottom: 12px;
+
+    color: var(--primario);
+}
+
+.menu-lateral button,
+.boton-dom {
+    display: block;
+
+    width: 100%;
+
+    text-align: left;
+
+    padding: 10px 14px;
+
+    margin-bottom: 8px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #edf2f5;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.menu-lateral button:hover,
+.boton-dom:hover {
+    background: var(--primario);
+    color: white;
+}
+
+.boton-dom {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-lateral hr {
+    margin: 18px 0;
+
+    border: none;
+
+    border-top: 1px solid var(--borde);
+}
+
+/* ========================= */
+/* PANEL PRINCIPAL */
+/* ========================= */
+
+.contenedor-visor {
+    background: white;
+
+    border: 1px solid var(--borde);
+
+    border-radius: 20px;
+
+    padding: 25px;
+}
+
+.cabecera-visor {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
-    margin-bottom: 14px;
+
+    margin-bottom: 25px;
 }
 
-.panel-cabecera h3 {
-    margin: 4px 0 0;
+.cabecera-visor h2 {
+    margin-top: 5px;
 }
 
-.punto {
-    width: 10px;
-    height: 10px;
-    background: #5ca58b;
+.estado {
+    width: 12px;
+    height: 12px;
+
+    background: #58ba8c;
+
     border-radius: 50%;
 }
 
+/* ========================= */
+/* CANVAS */
+/* ========================= */
+
 #lienzo {
+    min-height: 500px;
+
     display: flex;
+
     justify-content: center;
-    overflow: hidden;
-    background: #f8fafb;
+    align-items: center;
+
     border: 1px solid var(--borde);
-    border-radius: 8px;
+
+    border-radius: 12px;
+
+    background: #f8fafb;
+
+    overflow: hidden;
 }
 
 #lienzo canvas {
     display: block;
-    max-width: 100%;
-    height: auto !important;
 }
 
-.ayuda {
-    margin: 12px 0 0;
-    color: var(--suave);
-    font-size: 0.8rem;
+/* ========================= */
+/* INFORMACIÓN */
+/* ========================= */
+
+.informacion {
+    margin-bottom: 60px;
 }
+
+.informacion h2 {
+    margin-bottom: 20px;
+
+    color: var(--primario);
+}
+
+.info-card {
+    background: white;
+
+    border: 1px solid var(--borde);
+
+    border-radius: 18px;
+
+    padding: 30px;
+}
+
+.info-card h3 {
+    font-size: 1.8rem;
+
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    color: var(--texto-suave);
+}
+
+.info-extra {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+    margin-top: 25px;
+}
+
+.info-extra h4 {
+    margin-bottom: 6px;
+
+    color: var(--primario);
+}
+
+/* ========================= */
+/* TEORÍA */
+/* ========================= */
 
 .teoria {
-    padding: 24px 0 70px;
-    scroll-margin-top: 80px;
+    margin-bottom: 80px;
 }
 
-.bloques-teoria {
+.teoria-titulo {
+    margin-bottom: 25px;
+}
+
+.teoria-titulo h2 {
+    margin-top: 8px;
+}
+
+.teoria-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
 }
 
-.bloque {
+.bloque-teoria {
+    background: white;
+
+    border: 1px solid var(--borde);
+
+    border-radius: 18px;
+
     padding: 25px;
 }
 
-.bloque h3 {
-    margin-top: 0;
+.bloque-teoria h3 {
+    margin-bottom: 15px;
 }
 
-.bloque h4 {
-    margin-bottom: 5px;
+.bloque-teoria p,
+.bloque-teoria li {
+    color: var(--texto-suave);
 }
 
-.bloque p, .bloque li {
-    color: #4d5a64;
+.bloque-teoria ul {
+    padding-left: 20px;
 }
 
-code {
-    padding: 2px 5px;
-    background: #edf2f4;
-    border-radius: 4px;
-    font-family: Consolas, monospace;
-    font-size: 0.9em;
-}
+/* ========================= */
+/* FOOTER */
+/* ========================= */
 
 footer {
-    padding: 24px 7%;
     background: #203d4a;
-    color: #dce9ed;
+
+    color: white;
+
     text-align: center;
-    font-size: 0.9rem;
+
+    padding: 25px;
 }
 
-@media (max-width: 850px) {
-    .intro, .zona-proyectos, .bloques-teoria {
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 1000px) {
+
+    .visor-principal {
+
         grid-template-columns: 1fr;
     }
 
-    .panel-dibujo {
-        position: static;
-        grid-row: 1;
-    }
+    .menu-lateral {
 
-    .intro {
-        padding-top: 35px;
+        position: static;
     }
 }
 
-@media (max-width: 520px) {
-    .tarjetas {
+@media (max-width: 768px) {
+
+    .info-extra,
+    .teoria-grid {
+
         grid-template-columns: 1fr;
     }
 
-    .tarjeta:last-child {
-        grid-column: auto;
+    #lienzo {
+
+        min-height: 420px;
     }
 
-    .menu {
-        position: static;
+    .menu-superior {
+
+        flex-wrap: wrap;
     }
+}
+
+@media (max-width: 500px) {
 
     .encabezado {
-        padding-top: 38px;
+
+        padding: 40px 7%;
+    }
+
+    .encabezado h1 {
+
+        font-size: 2rem;
+    }
+
+    #lienzo {
+
+        min-height: 350px;
     }
 }
