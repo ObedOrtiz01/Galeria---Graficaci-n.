@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Mi galería de gráficación</title>
+
     <link rel="stylesheet" href="css/styles.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
 </head>
+
 <body>
-    <!-- ============================= -->
-    <!-- ENCABEZADO -->
-    <!-- ============================= -->
+
     <header class="encabezado">
 
         <p class="etiqueta">
@@ -26,15 +29,15 @@
 
     </header>
 
-    <!-- ============================= -->
-    <!-- MENÚ SUPERIOR -->
-    <!-- ============================= -->
-
     <nav class="menu-superior">
 
-        <a href="#visor">Dibujos</a>
+        <a href="#visor">
+            Dibujos
+        </a>
 
-        <a href="#visor">Animaciones</a>
+        <a href="#visor">
+            Animaciones
+        </a>
 
         <a href="dom-inspector.html">
             Ver árbol DOM
@@ -42,15 +45,9 @@
 
     </nav>
 
-    <!-- ============================= -->
-    <!-- CONTENIDO PRINCIPAL -->
-    <!-- ============================= -->
-
     <main>
 
         <section class="visor-principal" id="visor">
-
-            <!-- MENÚ LATERAL -->
 
             <aside class="menu-lateral">
 
@@ -96,16 +93,11 @@
 
                 <h3>DOM</h3>
 
-                <a
-                    class="boton-dom"
-                    href="dom-inspector.html"
-                >
+                <a class="boton-dom" href="dom-inspector.html">
                     Abrir árbol DOM
                 </a>
 
             </aside>
-
-            <!-- VISOR -->
 
             <section class="contenedor-visor">
 
@@ -133,10 +125,6 @@
 
         </section>
 
-        <!-- ============================= -->
-        <!-- INFORMACIÓN DINÁMICA -->
-        <!-- ============================= -->
-
         <section class="informacion">
 
             <h2>Información del proyecto</h2>
@@ -148,8 +136,9 @@
                 </h3>
 
                 <p id="info-descripcion">
-                    Selecciona un proyecto para visualizar
-                    su información.
+
+                    Selecciona un proyecto para visualizar su información.
+
                 </p>
 
                 <div class="info-extra">
@@ -161,53 +150,71 @@
                         <p id="info-categoria">
                             Dibujo
                         </p>
+
                     </div>
+
                     <div>
+
                         <h4>Conceptos</h4>
+
                         <p id="info-conceptos">
                             p5.js
                         </p>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
-        <!-- ============================= -->
-        <!-- TEORÍA -->
-        <!-- ============================= -->
-        <section id="teoria" class="teoria">
+
+        <section class="teoria">
+
             <div class="teoria-titulo">
+
                 <p class="etiqueta">
                     APARTADO INFORMATIVO
                 </p>
+
                 <h2>
                     Fundamentos de Canvas y p5.js
                 </h2>
+
             </div>
+
             <div class="teoria-grid">
+
                 <article class="bloque-teoria">
+
                     <h3>
                         ¿Qué es Canvas?
                     </h3>
+
                     <p>
-                        La etiqueta canvas permite crear un área
-                                   representar gráficos mediante JavaScript.
+                        La etiqueta canvas permite crear un área de dibujo dentro de una página web mediante JavaScript.
                     </p>
+
                     <p>
-                        Sobre esta superficie pueden dibujarse
-                        líneas, círculos, imágenes, animaciones
-                        e interfaces gráficas.
+                        Sobre esta superficie pueden dibujarse figuras,
+                        animaciones e interfaces gráficas.
                     </p>
+
                 </article>
+
                 <article class="bloque-teoria">
+
                     <h3>
                         Fundamentos de p5.js
                     </h3>
+
                     <p>
-                        p5.js es una librería diseñada para
-                        facilitar la creación de dibujos y
-                        animaciones interactivas.
+                        p5.js facilita la creación de dibujos
+                        y animaciones interactivas.
                     </p>
+
                     <ul>
+
                         <li>createCanvas()</li>
                         <li>background()</li>
                         <li>fill()</li>
@@ -216,23 +223,29 @@
                         <li>line()</li>
                         <li>setup()</li>
                         <li>draw()</li>
+
                     </ul>
+
                 </article>
+
             </div>
+
         </section>
+
     </main>
-    <!-- ============================= -->
-    <!-- FOOTER -->
-    <!-- ============================= -->
+
     <footer>
         Proyecto escolar de Gráficación · HTML · CSS · JavaScript · p5.js
-
     </footer>
 
-    js/information.jsscript>
-    js/draws.jsscript>
-    js/animations.jsscript>
-    js/main.jsscript>
+    <script src="js/information.js"></script>
+
+    <script src="js/draws.js"></script>
+
+    <script src="js/animations.js"></script>
+
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>
