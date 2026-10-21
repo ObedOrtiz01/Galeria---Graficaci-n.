@@ -1,0 +1,219 @@
+/* ===================================================
+   INSPECTOR DOM · estilos del diagrama
+   (cargar DESPUÉS de styles.css)
+   =================================================== */
+
+.pagina-dom {
+    background: #081529;
+    color: #ffffff;
+}
+
+/* Adaptación del menú superior y footer al tema oscuro */
+.pagina-dom .encabezado,
+.pagina-dom footer {
+    background: #0b1c36;
+}
+
+.pagina-dom .menu-superior {
+    background: #0d1d36;
+    border-bottom: 1px solid #25344d;
+}
+
+.pagina-dom .menu-superior a {
+    color: #ffffff;
+}
+
+.pagina-dom .menu-superior a:hover {
+    background: #1b2940;
+    color: #62b8ff;
+}
+
+.pagina-dom .etiqueta {
+    color: #62b8ff;
+}
+
+/* ---------- Panel superior ---------- */
+
+.dom-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    background: #1b2940;
+    border: 1px solid #2c3e5c;
+    border-radius: 16px;
+
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+
+.dom-panel h2 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+}
+
+#estado {
+    color: #aebbd0;
+    font-size: 0.95rem;
+}
+
+.dom-controles {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dom-controles button {
+    background: #0f1d33;
+    color: #ffffff;
+
+    border: 1px solid #34486a;
+    border-radius: 8px;
+
+    padding: 8px 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.dom-controles button:hover {
+    border-color: #62b8ff;
+    color: #62b8ff;
+}
+
+#zoom-valor {
+    min-width: 48px;
+    text-align: center;
+    color: #62b8ff;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+/* ---------- Área con scroll ---------- */
+
+.arbol-viewport {
+    overflow: auto;
+
+    background:
+        radial-gradient(circle at 1px 1px, #16253d 1px, transparent 0)
+        0 0 / 24px 24px,
+        #0a1a30;
+
+    border: 1px solid #2c3e5c;
+    border-radius: 16px;
+
+    max-height: 75vh;
+    min-height: 300px;
+}
+
+.arbol-sizer {
+    position: relative;
+}
+
+.arbol-escenario {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+}
+
+.arbol-lineas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.conector {
+    fill: none;
+    stroke: #7f93b0;
+    stroke-width: 1.6;
+    stroke-linejoin: round;
+}
+
+/* ---------- Nodos ---------- */
+
+.nodo-dom {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+
+    padding: 6px 10px;
+
+    background: #1b2940;
+    border: 1px solid #34486a;
+    border-top: 3px solid #62b8ff;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+    text-align: center;
+    overflow: hidden;
+
+    transition: transform .15s, border-color .15s;
+}
+
+.nodo-dom:hover {
+    transform: translateY(-2px);
+    border-color: #62b8ff;
+    z-index: 5;
+}
+
+.nodo-dom > span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+.nodo-etiqueta {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.nodo-clase {
+    color: #8fd0ff;
+    font-size: 0.74rem;
+}
+
+.nodo-id {
+    color: #ffd479;
+    font-size: 0.74rem;
+}
+
+.nodo-raiz {
+    background: #62b8ff;
+    border-color: #62b8ff;
+}
+
+.nodo-raiz .nodo-etiqueta {
+    color: #081529;
+}
+
+/* Variación sutil de acento por profundidad */
+.nivel-1 { border-top-color: #8fe3c0; }
+.nivel-2 { border-top-color: #62b8ff; }
+.nivel-3 { border-top-color: #b49bff; }
+.nivel-4 { border-top-color: #ffb36b; }
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 768px) {
+
+    .dom-panel {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .arbol-viewport {
+        max-height: 65vh;
+    }
+}
