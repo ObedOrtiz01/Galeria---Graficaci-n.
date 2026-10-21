@@ -1,227 +1,72 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Inspector del árbol DOM</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="css/styles.css">
 
-        body {
-            margin: 0;
-            padding: 30px;
-            background: #111827;
-            color: #f3f4f6;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        h1 {
-            color: #60c5fa;
-        }
-
-        p {
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
-
-        nav {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        a {
-            color: #60c5fa;
-        }
-
-        nav a {
-            display: inline-block;
-            padding: 10px 16px;
-            border: 1px solid #60c5fa;
-            border-radius: 8px;
-            text-decoration: none;
-        }
-
-        main {
-            background: #1f2937;
-            border-radius: 14px;
-            padding: 20px;
-            overflow-x: auto;
-        }
-
-        #arbol {
-            min-width: max-content;
-            padding: 10px;
-        }
-
-        details {
-            margin: 10px 0 10px 18px;
-        }
-
-        summary {
-            display: list-item;
-            cursor: pointer;
-            width: fit-content;
-            padding: 9px 13px;
-            border: 2px solid #60c5fa;
-            border-radius: 8px;
-            background: #263449;
-            color: #ffffff;
-            font-family: monospace;
-            font-size: 15px;
-        }
-
-        summary:hover {
-            background: #34465f;
-        }
-
-        .etiqueta {
-            color: #93c5fd;
-            font-weight: bold;
-        }
-
-        .atributos {
-            color: #c4b5fd;
-        }
-
-        .texto {
-            color: #a7f3d0;
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-        }
-
-        .hijos {
-            margin-left: 15px;
-            padding-left: 12px;
-            border-left: 2px solid #64748b;
-        }
-
-        #estado {
-            color: #a7f3d0;
-        }
-
-        footer {
-            margin-top: 25px;
-            text-align: center;
-            color: #9ca3af;
-        }
-    </style>
 </head>
 
 <body>
-    <header>
-        <h1>Inspector del árbol DOM</h1>
-        <p>
-            Visualización de la estructura HTML de mi galería
-            de dibujos mediante el árbol DOM.
+
+    <header class="encabezado">
+
+        <p class="etiqueta">
+            INGENIERÍA EN SISTEMAS COMPUTACIONALES · GRÁFICACIÓN
         </p>
+
+        <h1>Inspector del árbol DOM</h1>
+
+        <p>
+            Visualización de la estructura HTML de la galería y
+            jerarquía de elementos que conforman el sitio web.
+        </p>
+
     </header>
 
-    <nav>
-        <a href="index.html">Volver a la galería</a>
+    <nav class="menu-superior">
+
+        <a href="index.html">
+            Volver a la galería
+        </a>
+
     </nav>
 
     <main>
-        <h2>Jerarquía de etiquetas HTML</h2>
-        <p>
-            Pulsa sobre cada etiqueta para desplegar
-            o contraer sus elementos hijos.
-        </p>
 
-        <p id="estado">Cargando estructura HTML...</p>
-        <div id="arbol"></div>
+        <section class="informacion">
+
+            <h2>Visualización del árbol DOM</h2>
+
+            <div class="info-card">
+
+                <p id="estado">
+                    Cargando estructura del documento...
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="contenedor-arbol">
+
+            <div id="arbol"></div>
+
+        </section>
+
     </main>
 
     <footer>
-        Proyecto de galería web · Inspector DOM
+
+        Proyecto escolar de Gráficación · HTML · CSS · JavaScript · DOM
+
     </footer>
 
-    <script>
-        async function cargarArbol() {
-            const estado = document.getElementById("estado");
-            const contenedor = document.getElementById("arbol");
+    <script src="js/dom.js"></script>
 
-            try {
-                const respuesta = await fetch("index.html");
-
-                if (!respuesta.ok) {
-                    throw new Error("No se pudo cargar index.html");
-                }
-
-                const html = await respuesta.text();
-
-                const documento = new DOMParser().parseFromString(
-                    html,
-                    "text/html"
-                );
-
-                contenedor.replaceChildren();
-
-                contenedor.appendChild(
-                    crearNodo(documento.documentElement, 0)
-                );
-
-                estado.textContent =
-                    "Árbol generado a partir de index.html.";
-            } catch (error) {
-                estado.textContent =
-                    "No se pudo cargar index.html. Comprueba que " +
-                    "ambos archivos estén en la misma carpeta y " +
-                    "que la página esté publicada.";
-            }
-        }
-
-        function crearNodo(elemento, nivel) {
-            const detalles = document.createElement("details");
-            const resumen = document.createElement("summary");
-
-            const nombre = document.createElement("span");
-            nombre.className = "etiqueta";
-            nombre.textContent = "<" + elemento.tagName.toLowerCase() + ">";
-
-            resumen.appendChild(nombre);
-
-            if (elemento.id) {
-                const id = document.createElement("span");
-                id.className = "atributos";
-                id.textContent = ' id="' + elemento.id + '"';
-                resumen.appendChild(id);
-            }
-
-            if (elemento.classList && elemento.classList.length > 0) {
-                const clase = document.createElement("span");
-                clase.className = "atributos";
-                clase.textContent =
-                    ' class="' + elemento.classList.value + '"';
-                resumen.appendChild(clase);
-            }
-
-            detalles.appendChild(resumen);
-
-            const hijos = document.createElement("div");
-            hijos.className = "hijos";
-
-            for (const hijo of elemento.children) {
-                hijos.appendChild(crearNodo(hijo, nivel + 1));
-            }
-
-            if (hijos.childElementCount > 0) {
-                detalles.appendChild(hijos);
-                detalles.open = nivel < 2;
-            }
-
-            return detalles;
-        }
-
-        cargarArbol();
-    </script>
 </body>
 </html>
